@@ -6,6 +6,7 @@
 <?import javafx.scene.layout.*?>
 
 <VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      stylesheets="sample.css"
       fx:controller="sample.Controller">
     <HBox alignment="CENTER">
         <children>
@@ -23,10 +24,10 @@
                 <children>
                     <HBox spacing="10.0" VBox.vgrow="NEVER">
                         <children>
-                            <Button fx:id="btn_chooseTextA" mnemonicParsing="false" onAction="#chooseFileA"
+                            <Button fx:id="btnChooseTextA" mnemonicParsing="false" onAction="#chooseFileA"
                                     text="选择文件"/>
                             <ComboBox fx:id="presetFileSelectionA"/>
-                            <Button fx:id="btn_clearA" mnemonicParsing="false" onAction="#clearTextA" text="清空"/>
+                            <Button fx:id="btnClearA" mnemonicParsing="false" onAction="#clearTextA" text="清空"/>
                         </children>
                     </HBox>
                     <TextArea fx:id="textA" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS"/>
@@ -36,10 +37,10 @@
                 <children>
                     <HBox spacing="10.0">
                         <children>
-                            <Button fx:id="btn_chooseTextB" mnemonicParsing="false" onAction="#chooseFileB"
+                            <Button fx:id="btnChooseTextB" mnemonicParsing="false" onAction="#chooseFileB"
                                     text="选择文件"/>
                             <ComboBox fx:id="presetFileSelectionB"/>
-                            <Button fx:id="btn_clearB" mnemonicParsing="false" onAction="#clearTextB" text="清空"/>
+                            <Button fx:id="btnClearB" mnemonicParsing="false" onAction="#clearTextB" text="清空"/>
                         </children>
                     </HBox>
                     <TextArea fx:id="textB" minHeight="-Infinity" VBox.vgrow="ALWAYS"/>

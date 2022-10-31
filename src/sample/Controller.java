@@ -3,7 +3,6 @@ package sample;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -29,21 +28,40 @@ public class Controller implements Initializable {
     // 视图控件
     @FXML
     private ComboBox<String> featureSelection;
+    @FXML
     public ComboBox<String> distanceTypeSelection;
+    @FXML
     public Button compare;
+    @FXML
     public Label result;
+    @FXML
     public TextArea textA;
+    @FXML
     public TextArea textB;
-    public Button btn_chooseTextA;
-    public Button btn_clearA;
-    public Button btn_chooseTextB;
-    public Button btn_clearB;
+    @FXML
+    public Button btnChooseTextA;
+    @FXML
+    public Button btnClearA;
+    @FXML
+    public Button btnChooseTextB;
+    @FXML
+    public Button btnClearB;
+    @FXML
     public ComboBox<String> presetFileSelectionA;
+    @FXML
     public ComboBox<String> presetFileSelectionB;
     
-    // 数据
-    public static final String[] presetFiles = {"Person_A", "Person_B", "Person_C"};
+    /**
+     * 选择预设文件下拉框中显示的字符串文本
+     */
+    public static final String[] PRESET_FILES = {"Person_A", "Person_B", "Person_C"};
+    /**
+     * 选择文本特征下拉框中显示的字符串文本
+     */
     public static final String[] FEATURES = {"词频", "首次出现位置"};
+    /**
+     * 选择特征距离计算方式下拉框中显示的字符串文本
+     */
     public static final String[] DISTANCE_TYPE = {"余弦相似度", "欧式距离", "汉明相似度"};
     Model model;
     
@@ -91,15 +109,15 @@ public class Controller implements Initializable {
                 result.setText("以" + featureSelection.getValue() + "为特征的" + distanceTypeSelection.getValue());
             }
         });
-        
+    
         // 预设文本选择
         presetFileSelectionA.setPromptText("选择预设文本");
-        presetFileSelectionA.setItems(FXCollections.observableArrayList(presetFiles));
+        presetFileSelectionA.setItems(FXCollections.observableArrayList(PRESET_FILES));
         presetFileSelectionA.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 textA.setText("");
-                InputStream inputStream = getClass().getResourceAsStream("res/presets/" + presetFiles[newValue.intValue()] + ".txt");
+                InputStream inputStream = getClass().getResourceAsStream("res/presets/" + PRESET_FILES[newValue.intValue()] + ".txt");
                 Scanner sc = new Scanner(inputStream);
                 while (sc.hasNextLine()) {
                     textA.appendText(sc.nextLine());
@@ -113,12 +131,12 @@ public class Controller implements Initializable {
             }
         });
         presetFileSelectionB.setPromptText("选择预设文本");
-        presetFileSelectionB.setItems(FXCollections.observableArrayList(presetFiles));
+        presetFileSelectionB.setItems(FXCollections.observableArrayList(PRESET_FILES));
         presetFileSelectionB.getSelectionModel().selectedIndexProperty().addListener(new ChangeListener<Number>() {
             @Override
             public void changed(ObservableValue<? extends Number> observable, Number oldValue, Number newValue) {
                 textB.setText("");
-                InputStream inputStream = getClass().getResourceAsStream("res/presets/" + presetFiles[newValue.intValue()] + ".txt");
+                InputStream inputStream = getClass().getResourceAsStream("res/presets/" + PRESET_FILES[newValue.intValue()] + ".txt");
                 Scanner sc = new Scanner(inputStream);
                 while (sc.hasNextLine()) {
                     textB.appendText(sc.nextLine());
@@ -154,11 +172,10 @@ public class Controller implements Initializable {
     /**
      * 直接响应左侧文本栏的清空按钮，将左侧文本清空
      *
-     * @param actionEvent 点击事件
      * @Return void
      * @author Bubu
      */
-    public void clearTextA(ActionEvent actionEvent) {
+    public void clearTextA() {
         presetFileSelectionA.setValue("选择预设文本");
         textA.setText("");
     }
@@ -166,11 +183,10 @@ public class Controller implements Initializable {
     /**
      * 直接响应右侧文本栏的清空按钮，将右侧文本清空
      *
-     * @param actionEvent 点击事件
      * @Return void
      * @author Bubu
      */
-    public void clearTextB(ActionEvent actionEvent) {
+    public void clearTextB() {
         presetFileSelectionB.setValue("选择预设文本");
         textB.setText("");
     }
@@ -178,11 +194,10 @@ public class Controller implements Initializable {
     /**
      * 直接响应左侧文本栏的选择文件按钮，选择文件后，将文件内容输出到左侧文本栏中
      *
-     * @param actionEvent 点击事件
      * @Return void
      * @author Bubu
      */
-    public void chooseFileA(ActionEvent actionEvent) {
+    public void chooseFileA() {
         System.out.println("click left button");
         showFileInA(openFile());
     }
@@ -190,11 +205,10 @@ public class Controller implements Initializable {
     /**
      * 直接响应右侧文本栏的选择文件按钮，选择文件后，将文件内容输出到右侧文本栏中
      *
-     * @param actionEvent 点击事件
      * @Return void
      * @author Bubu
      */
-    public void chooseFileB(ActionEvent actionEvent) {
+    public void chooseFileB() {
         System.out.println("click left button");
         showFileInB(openFile());
     }
