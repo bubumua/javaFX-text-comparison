@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="TOP_CENTER" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="sample.Controller">
+    <HBox alignment="CENTER">
+        <children>
+            <ComboBox fx:id="featureSelection" prefWidth="150.0" promptText="选择文本特征">
+                <cursor>
+                    <Cursor fx:constant="CLOSED_HAND"/>
+                </cursor>
+            </ComboBox>
+            <ComboBox fx:id="distanceTypeSelection" prefWidth="150.0" promptText="选择特征距离计算方式"/>
+        </children>
+    </HBox>
+    <HBox maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS">
+        <children>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                <children>
+                    <HBox spacing="10.0" VBox.vgrow="NEVER">
+                        <children>
+                            <Button fx:id="btn_chooseTextA" mnemonicParsing="false" onAction="#chooseFileA"
+                                    text="选择文件"/>
+                            <ComboBox fx:id="presetFileSelectionA"/>
+                            <Button fx:id="btn_clearA" mnemonicParsing="false" onAction="#clearTextA" text="清空"/>
+                        </children>
+                    </HBox>
+                    <TextArea fx:id="textA" maxHeight="1.7976931348623157E308" VBox.vgrow="ALWAYS"/>
+                </children>
+            </VBox>
+            <VBox alignment="CENTER" maxHeight="1.7976931348623157E308" HBox.hgrow="ALWAYS">
+                <children>
+                    <HBox spacing="10.0">
+                        <children>
+                            <Button fx:id="btn_chooseTextB" mnemonicParsing="false" onAction="#chooseFileB"
+                                    text="选择文件"/>
+                            <ComboBox fx:id="presetFileSelectionB"/>
+                            <Button fx:id="btn_clearB" mnemonicParsing="false" onAction="#clearTextB" text="清空"/>
+                        </children>
+                    </HBox>
+                    <TextArea fx:id="textB" minHeight="-Infinity" VBox.vgrow="ALWAYS"/>
+                </children>
+            </VBox>
+        </children>
+    </HBox>
+    <Label fx:id="result" alignment="CENTER" maxWidth="1.7976931348623157E308" text="Label"/>
+    <Button fx:id="compare" alignment="center" mnemonicParsing="false" onAction="#compare" text="Button"/>
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+    </padding>
+</VBox>
