@@ -5,3 +5,7 @@
 .button {
     -fx-cursor: hand;
 }
+
+.text-area {
+    -fx-wrap-text: true;
+}

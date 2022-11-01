@@ -19,7 +19,7 @@ public class Main extends Application {
         // 加载布局文件
         Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
         // 设置窗口标题
-        primaryStage.setTitle("Hello World");
+        primaryStage.setTitle("文本相似度");
         // 设置窗口图标
         primaryStage.getIcons().add(new Image(String.valueOf(getClass().getResource("res/images/compare.png"))));
         // 设置窗口初始大小

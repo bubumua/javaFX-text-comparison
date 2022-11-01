@@ -11,8 +11,13 @@ import java.util.regex.Pattern;
  * @author Uzedo
  */
 public class Model {
-    
+    /**
+     * 哈希表，用于存放特征向量
+     */
     HashMap<String, Integer> allWords, pWords, qWords;
+    /**
+     * 正则表达式，用于匹配文本中的数值、单词
+     */
     public static Pattern wordPattern = Pattern.compile("\\d+.\\d+|\\w+('\\w+)?");
     
     public Model() {
@@ -22,7 +27,7 @@ public class Model {
     }
     
     /**
-     * 根据给定特征选择和向量距离计算方式选择，计算两个输入的字符串的相似度
+     * 根据给定特征选择和向量距离计算方式选择，计算两个输入的字符串的相似度，并返回结果
      *
      * @param strA         字符串A
      * @param strB         字符串B

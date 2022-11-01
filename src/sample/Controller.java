@@ -54,7 +54,7 @@ public class Controller implements Initializable {
     /**
      * 选择预设文件下拉框中显示的字符串文本
      */
-    public static final String[] PRESET_FILES = {"Person_A", "Person_B", "Person_C"};
+    public static final String[] PRESET_FILES = {"Paragraph_A", "Paragraph_B", "Paragraph_C", "Paragraph_D"};
     /**
      * 选择文本特征下拉框中显示的字符串文本
      */
@@ -63,6 +63,9 @@ public class Controller implements Initializable {
      * 选择特征距离计算方式下拉框中显示的字符串文本
      */
     public static final String[] DISTANCE_TYPE = {"余弦相似度", "欧式距离", "汉明相似度"};
+    /**
+     * 模型对象
+     */
     Model model;
     
     
@@ -221,7 +224,11 @@ public class Controller implements Initializable {
      */
     File openFile() {
         Stage stage = new Stage();
-        File file = new FileChooser().showOpenDialog(stage);
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.getExtensionFilters().add(
+                new FileChooser.ExtensionFilter("TXT Files", "*.txt")
+        );
+        File file = fileChooser.showOpenDialog(stage);
         System.out.println("get file " + file.getName());
         return file;
     }
