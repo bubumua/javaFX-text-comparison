@@ -20,8 +20,6 @@ import java.util.Scanner;
 
 /**
  * 用于处理用户的交互
- *
- * @author Bubu
  */
 public class Controller implements Initializable {
     
@@ -75,7 +73,6 @@ public class Controller implements Initializable {
      * @param location  URL
      * @param resources ResourceBundle
      * @Return void
-     * @author Bubu
      */
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -160,7 +157,6 @@ public class Controller implements Initializable {
      * 直接响应比较按钮的点击，比较两个文本的相似度
      *
      * @Return void
-     * @author Bubu
      */
     public void compare() {
         result.setText("comparing......");
@@ -176,7 +172,6 @@ public class Controller implements Initializable {
      * 直接响应左侧文本栏的清空按钮，将左侧文本清空
      *
      * @Return void
-     * @author Bubu
      */
     public void clearTextA() {
         presetFileSelectionA.setValue("选择预设文本");
@@ -187,7 +182,6 @@ public class Controller implements Initializable {
      * 直接响应右侧文本栏的清空按钮，将右侧文本清空
      *
      * @Return void
-     * @author Bubu
      */
     public void clearTextB() {
         presetFileSelectionB.setValue("选择预设文本");
@@ -198,7 +192,6 @@ public class Controller implements Initializable {
      * 直接响应左侧文本栏的选择文件按钮，选择文件后，将文件内容输出到左侧文本栏中
      *
      * @Return void
-     * @author Bubu
      */
     public void chooseFileA() {
         System.out.println("click left button");
@@ -209,7 +202,6 @@ public class Controller implements Initializable {
      * 直接响应右侧文本栏的选择文件按钮，选择文件后，将文件内容输出到右侧文本栏中
      *
      * @Return void
-     * @author Bubu
      */
     public void chooseFileB() {
         System.out.println("click left button");
@@ -220,7 +212,6 @@ public class Controller implements Initializable {
      * 新建窗口，选择文件
      *
      * @Return java.io.File 文件对象
-     * @author Bubu
      */
     File openFile() {
         Stage stage = new Stage();
@@ -247,7 +238,6 @@ public class Controller implements Initializable {
      * @param file     需要输出的文件
      * @param textArea 显示文件内容的文本栏
      * @Return void
-     * @author Bubu
      */
     private void showOnTextArea(File file, TextArea textArea) {
         try (Scanner scanner = new Scanner(new FileReader(file))) {

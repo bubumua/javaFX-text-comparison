@@ -9,8 +9,6 @@ import javafx.stage.Stage;
 
 /**
  * 程序的入口类，主要执行窗口的建立，以及加载布局
- *
- * @author Bubu
  */
 public class Main extends Application {
     

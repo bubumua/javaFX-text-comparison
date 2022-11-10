@@ -7,8 +7,6 @@ import java.util.regex.Pattern;
 
 /**
  * 通过调用内部方法，实现两个文本的相似度比较
- *
- * @author Uzedo
  */
 public class Model {
     /**
@@ -34,7 +32,6 @@ public class Model {
      * @param feature      特征
      * @param distanceType 向量距离计算方式
      * @Return double
-     * @author Bubu
      */
     public double compareByType(String strA, String strB, int feature, int distanceType) {
         allWords = createAllWords(strA, strB);
@@ -80,7 +77,6 @@ public class Model {
      * @param p 向量p
      * @param q 向量q
      * @Return double
-     * @author Bubu
      */
     private double computeHammingDistance(HashMap<String, Integer> p, HashMap<String, Integer> q) {
         // 安全性检验。若两个向量长度不等，返回-1
@@ -104,7 +100,6 @@ public class Model {
      * @param p 向量p
      * @param q 向量q
      * @Return double
-     * @author Bubu
      */
     private double computeEuclideanDistance(HashMap<String, Integer> p, HashMap<String, Integer> q) {
         // 安全性检验。若两个向量长度不等，返回-1
@@ -128,7 +123,6 @@ public class Model {
      * @param p 向量p
      * @param q 向量q
      * @Return double
-     * @author Bubu
      */
     private double computeCosineDistance(HashMap<String, Integer> p, HashMap<String, Integer> q) {
         // 安全性检验。若两个向量长度不等，返回-1
@@ -155,7 +149,6 @@ public class Model {
      * @param allWords 初始的词汇表
      * @param str      字符串
      * @Return java.util.HashMap<java.lang.String, java.lang.Integer>
-     * @author Bubu
      */
     private HashMap<String, Integer> createFirstShowVector(HashMap<String, Integer> allWords, String str) {
         HashMap<String, Integer> fsv = deepCopyHashMap(allWords);
@@ -177,7 +170,6 @@ public class Model {
      * @param allWords 初始的词汇表
      * @param str      字符串
      * @Return java.util.HashMap<java.lang.String, java.lang.Integer>
-     * @author Bubu
      */
     private HashMap<String, Integer> createFrequencyVector(HashMap<String, Integer> allWords, String str) {
         HashMap<String, Integer> fv = deepCopyHashMap(allWords);
@@ -197,7 +189,6 @@ public class Model {
      * @param strA 字符串A
      * @param strB 字符串B
      * @Return java.util.HashMap<java.lang.String, java.lang.Integer> 返回构建的词汇表
-     * @author Bubu
      */
     private HashMap<String, Integer> createAllWords(String strA, String strB) {
         HashMap<String, Integer> allWords = new HashMap<>();
@@ -229,7 +220,6 @@ public class Model {
      *
      * @param map 被拷贝的哈希表
      * @Return java.util.HashMap<java.lang.String, java.lang.Integer>
-     * @author Bubu
      */
     public static HashMap<String, Integer> deepCopyHashMap(HashMap<String, Integer> map) {
         HashMap<String, Integer> copy = new HashMap<>(map.size());
